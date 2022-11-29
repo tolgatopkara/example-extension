@@ -1,0 +1,17 @@
+ {
+    "maniest_version": 3,
+    "name": "My App",
+    "description": "My App Description",
+    "version": "1.0.0",
+
+    "action" : {
+       "default_popup": "index.html"
+    },
+
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*",
+        "*://*/*"
+    ]
+ }
+
