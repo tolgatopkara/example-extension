@@ -6,7 +6,15 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      height:{
+        '68' : '17rem',
+      },
+      width:{
+        '120': '30rem',
+      }
+
+    },
   },
   plugins: [],
 };
