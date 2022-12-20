@@ -37,11 +37,11 @@
             "scripts": [],
             "optimization": {
               "scripts": true,
-              "styles" : {
+              "styles": {
                 "minify": true,
                 "inlineCritical": false
               },
-              "fonts" : true 
+              "fonts": true
             }
           },
           "configurations": {
@@ -109,11 +109,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "e32f61e1-524f-4e00-8ba9-842af141c53a"
+    "analytics": "e32f61e1-524f-4e00-8ba9-842af141c53a",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
