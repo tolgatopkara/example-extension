@@ -1,0 +1,83 @@
+<div class="top-0 right-0 w-120 h-68 flex ">
+
+<div class="flex flex-col h-32">
+  <img class="h-10 w-32" src="../../assets/images/logo.png" >
+
+  <img class="h-14 w-32 bg-transparent" src="../../assets/images/vinc-nobg1.png" >
+
+</div>
+
+<div class="flex flex-col">
+  <igx-radial-gauge height="150px" width="150px"
+  [value]="gaugeValue"
+  interval="50"
+  minimumValue="0"
+  maximumValue="600"
+  font="7px  Verdana"
+
+  minorTickCount=3
+  minorTickEndExtent=.505
+  minorTickStartExtent=.57
+  minorTickStrokeThickness=1
+  minorTickBrush = "#69197a"
+  tickStartExtent=.47
+  tickEndExtent=.50
+  tickStrokeThickness=2
+
+
+
+  >
+
+
+  <igx-radial-gauge-range startValue="0"
+                          endValue="200"
+                          brush="green">
+  </igx-radial-gauge-range>
+  <igx-radial-gauge-range startValue="200"
+                          endValue="400"
+                          brush="yellow">
+  </igx-radial-gauge-range>
+  <igx-radial-gauge-range startValue="400"
+                          endValue="600"
+                          brush="red">
+  </igx-radial-gauge-range>
+  </igx-radial-gauge>
+
+  <igx-radial-gauge height="150px" width="150px"
+  [value]="gaugeValue2"
+  interval="50"
+  minimumValue="0"
+  maximumValue="600"
+  font="7px  Verdana"
+
+  minorTickCount=3
+  minorTickEndExtent=.505
+  minorTickStartExtent=.57
+  minorTickStrokeThickness=1
+  minorTickBrush = "#69197a"
+  tickStartExtent=.47
+  tickEndExtent=.50
+  tickStrokeThickness=2
+
+
+
+  >
+
+
+  <igx-radial-gauge-range startValue="0"
+                          endValue="200"
+                          brush="green">
+  </igx-radial-gauge-range>
+  <igx-radial-gauge-range startValue="200"
+                          endValue="400"
+                          brush="yellow">
+  </igx-radial-gauge-range>
+  <igx-radial-gauge-range startValue="400"
+                          endValue="600"
+                          brush="red">
+  </igx-radial-gauge-range>
+  </igx-radial-gauge>
+
+</div>
+
+</div>
