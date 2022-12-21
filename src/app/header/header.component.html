@@ -1,5 +1,5 @@
-<div class="w-120 h-24 bg-sky-600 flex">
-<div class="">
+<div class="w-120 h-24 bg-sky-600 flex ">
+<div class="bg-red-500 mx-10">
   <svg (click)="increaseGaugeValue()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
   </svg>
@@ -19,6 +19,8 @@
   </svg>
 </div>
 
+<input [(ngModel)]="gaugeValue" (ngModelChange)="updateGaugeValue()" class="block w-44 top-0 right-0" type="range" max="600" min="0" id="range">
 
+<input [(ngModel)]="gaugeValue2" (ngModelChange)="updateGaugeValue2()" class="block w-44 top-4 right-0" type="range" max="600" min="0" id="range">
 
 </div>

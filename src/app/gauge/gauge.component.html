@@ -13,20 +13,42 @@
   interval="50"
   minimumValue="0"
   maximumValue="600"
-  font="7px  Verdana"
+  font="5px  Verdana"
 
-  minorTickCount=3
-  minorTickEndExtent=.505
-  minorTickStartExtent=.57
-  minorTickStrokeThickness=1
+  minorTickCount=4
+  minorTickEndExtent=.730
+  minorTickStartExtent=.800
+  minorTickStrokeThickness=0.3
   minorTickBrush = "#69197a"
-  tickStartExtent=.47
-  tickEndExtent=.50
+
+  tickStartExtent=.73
+  tickEndExtent=.91
   tickStrokeThickness=2
+  tickBrush = "#e28743"
+
+  needleStrokeThickness="0.1"
+  needleBaseFeatureWidthRatio="0.1"
+  needleBrush="#e28743"
+  needlePivotBrush="#873e23"
+  needlePivotOutline="#063970"
+  needlePivotWidthRatio="0.2"
+  needleBrush="#69197a"
+  needleStartExtent="0.1"
+  needleEndExtent="0.75"
+ needleEndWidthRatio="0.01"
 
 
+ backingBrush="#12157a"
+ backingOutline="DodgerBlue"
+backingStrokeThickness="11"
+backingCornerRadius="0.1"
+backingInnerExtent="1"
+backingOuterExtent="0.87"
+scaleStartAngle=135 scaleEndAngle=45
+backingShape="Fitted"
 
-  >
+
+ >
 
 
   <igx-radial-gauge-range startValue="0"
@@ -42,6 +64,8 @@
                           brush="red">
   </igx-radial-gauge-range>
   </igx-radial-gauge>
+
+
 
   <igx-radial-gauge height="150px" width="150px"
   [value]="gaugeValue2"
