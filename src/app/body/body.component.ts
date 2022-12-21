@@ -7,10 +7,11 @@ import { GaugeComponent } from "../gauge/gauge.component";
     selector: 'app-body',
     template: `
 
-    <div id="body" class="w-120 h-68 bg-sky-300">
+    <div id="downloadedItem" class=" w-120 h-68 bg-sky-300">
   <app-gauge></app-gauge>
-<button (click)="download()" >download</button>
 </div>
+<button (click)="download()" >download</button>
+
 
  `,
     imports: [GaugeComponent,ExportAsModule]
@@ -18,13 +19,20 @@ import { GaugeComponent } from "../gauge/gauge.component";
 export class BodyComponent {
   exportAsConfig: ExportAsConfig = {
     type: 'png', // the type you want to download
-    elementIdOrContent: 'body', // the id of html/table element
+    elementIdOrContent: 'downloadedItem', // the id of html/table element
+    options: {
+      scale: 1.00000,
+
+      // html2canvas options
+    }
+
   }
 
   constructor(private exportAsService: ExportAsService) { }
 
   download() {
     this.exportAsService.save(this.exportAsConfig, 'myFile').subscribe(() => {
+
       // save started
     });
   }
