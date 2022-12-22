@@ -7,7 +7,7 @@ import { GaugeComponent } from "../gauge/gauge.component";
     selector: 'app-body',
     template: `
 
-    <div id="downloadedItem" class=" w-120 h-68 bg-sky-300">
+    <div id="downloadedItem" class=" w-120 h-68 bg-zinc-900">
   <app-gauge></app-gauge>
 </div>
 <button (click)="download()" >download</button>
