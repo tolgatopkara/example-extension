@@ -1,19 +1,20 @@
-<div class="top-0 right-0 w-120 h-68 flex ">
+<div class=" bg-white h-8 flex">
+  <img class="h-8 w-32" src="../../assets/images/logo.png" >
 
-<div class="flex flex-col h-32">
-  <img class="h-10 w-32" src="../../assets/images/logo.png" >
-
-  <img class="h-14 w-32 bg-transparent" src="../../assets/images/vinc-nobg1.png" >
+   <img class="h-8 w-24 bg-transparent" src="../../assets/images/vinc-nobg1.png" >
 
 </div>
 
-<div class="flex flex-col">
-  <igx-radial-gauge height="150px" width="150px"
+<div class="top-0 right-0 w-120 h-68  flex  ">
+
+
+  <igx-radial-gauge height="240px" width="240px"
   [value]="gaugeValue"
   interval="50"
   minimumValue="0"
   maximumValue="600"
   font="5px  Verdana "
+  labelExtent="0.8"
 
   fontBrush="#ffffff"
   minorTickBrush = "#fffffff"
@@ -23,16 +24,15 @@
   needleBrush="#ffffff"
   backingBrush="#0284c7"
   backingOutline="#0369a1"
-  backingOversweep="12"
 
 
   minorTickCount=4
-  minorTickEndExtent=.830
-  minorTickStartExtent=.800
+  minorTickEndExtent=.72
+  minorTickStartExtent=.75
   minorTickStrokeThickness=0.6
 
-  tickStartExtent=.80
-  tickEndExtent=.91
+  tickStartExtent=.67
+  tickEndExtent=.74
   tickStrokeThickness=2
 
 
@@ -40,17 +40,22 @@
   needleBaseFeatureWidthRatio="0.1"
   needlePivotWidthRatio="0.2"
   needleStartExtent="0"
-  needleEndExtent="0.75"
+  needleEndExtent="0.70"
   needleEndWidthRatio="0.01"
 
 
 backingStrokeThickness="10"
-backingCornerRadius="11"
-backingInnerExtent="1"
-backingOuterExtent="0.8"
-backingShape="Fitted"
+backingCornerRadius="10"
+backingOuterExtent=0.9
+backingInnerExtent=0.8
+backingShape="fitted"
+backingOversweep=5
 
+rangeOutlines="#ffffff, #ffffff"
+rangeInnerExtent=0.15
 
+isNeedleDraggingEnabled=false
+isNeedleDraggingConstrained="false"
 
  >
 
@@ -61,7 +66,7 @@ backingShape="Fitted"
   </igx-radial-gauge-range>
   <igx-radial-gauge-range startValue="200"
                           endValue="400"
-                          brush="yellow">
+                          brush="green">
   </igx-radial-gauge-range>
   <igx-radial-gauge-range startValue="400"
                           endValue="600"
@@ -71,21 +76,54 @@ backingShape="Fitted"
 
 
 
-  <igx-radial-gauge height="150px" width="150px"
+  <igx-radial-gauge height="240px" width="240px"
   [value]="gaugeValue2"
-  interval="50"
+  interval="100"
   minimumValue="0"
   maximumValue="600"
-  font="7px  Verdana"
+  font="5px  Verdana "
+  labelExtent="0.8"
 
-  minorTickCount=3
-  minorTickEndExtent=.505
-  minorTickStartExtent=.57
-  minorTickStrokeThickness=1
-  minorTickBrush = "#69197a"
-  tickStartExtent=.47
-  tickEndExtent=.50
+  fontBrush="#ffffff"
+  minorTickBrush = "#fffffff"
+  tickBrush = "#ffffff"
+  needlePivotBrush="#fffffff"
+  needlePivotOutline="#ffffff"
+  needleBrush="#ffffff"
+  backingBrush="#0284c7"
+  backingOutline="#0369a1"
+
+
+  minorTickCount=4
+  minorTickEndExtent=.72
+  minorTickStartExtent=.75
+  minorTickStrokeThickness=0.6
+
+  tickStartExtent=.67
+  tickEndExtent=.74
   tickStrokeThickness=2
+
+
+  needleStrokeThickness="0.8"
+  needleBaseFeatureWidthRatio="0.1"
+  needlePivotWidthRatio="0.2"
+  needleStartExtent="0"
+  needleEndExtent="0.70"
+  needleEndWidthRatio="0.01"
+
+
+backingStrokeThickness="10"
+backingCornerRadius="10"
+backingOuterExtent=0.9
+backingInnerExtent=0.8
+backingShape="fitted"
+backingOversweep=5
+
+rangeOutlines="#ffffff, #ffffff"
+rangeInnerExtent=0.15
+
+isNeedleDraggingEnabled=false
+isNeedleDraggingConstrained="false"
 
 
 
@@ -108,4 +146,3 @@ backingShape="Fitted"
 
 </div>
 
-</div>
