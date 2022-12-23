@@ -30,22 +30,22 @@ export class HeaderComponent {
 
   public increaseGaugeValue() {
     this.gaugeValue += 1;  // increase the gauge value
-    this.gaugeService.updateGaugeValue(this.gaugeValue);  // update the gaug
+    this.updateGaugeValue();  // update the gauge value in the service
    }
 
   public decreaseGaugeValue() {
     this.gaugeValue -= 1;  // decrease the gauge value
-    this.gaugeService.updateGaugeValue(this.gaugeValue);  // update the gauge value in the service
+    this.updateGaugeValue();  // update the gauge value in the service
   }
 
   public increaseGaugeValue2() {
     this.gaugeValue2 += 1;  // increase the gauge value
-    this.gaugeService.updateGaugeValue2(this.gaugeValue2);  // update the gaug
+    this.updateGaugeValue2();  // update the gauge value in the service
    }
 
    public decreaseGaugeValue2() {
     this.gaugeValue2 -= 1;  // decrease the gauge value
-    this.gaugeService.updateGaugeValue2(this.gaugeValue2);  // update the gauge value in the service
+    this.updateGaugeValue2();  // update the gauge value in the service
   }
 
 
