@@ -1,29 +1,54 @@
-import { async, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BodyComponent } from './body.component';
-import { ExportAsService } from 'ngx-export-as';
+import { GaugeComponent } from '../gauge/gauge.component';
+import { By } from '@angular/platform-browser';
 
 describe('BodyComponent', () => {
   let component: BodyComponent;
-  let exportAsService: ExportAsService;
+  let fixture: ComponentFixture<BodyComponent>;
+  let html2canvasResult: HTMLCanvasElement;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
+    html2canvasResult = {
+      toDataURL: () => 'data:image/jpeg;base64,abc123',
+    } as HTMLCanvasElement;
+
+
     TestBed.configureTestingModule({
-      imports: [ BodyComponent ],
-      providers: [ ExportAsService ]
-    })
-    .compileComponents();
+      imports: [BodyComponent, GaugeComponent],
+      declarations: [],
+    }).compileComponents();
 
-    const fixture = TestBed.createComponent(BodyComponent);
+    fixture = TestBed.createComponent(BodyComponent);
     component = fixture.componentInstance;
-    exportAsService = TestBed.inject(ExportAsService);
-  }));
-
-  it('should call save() on ExportAsService with the correct arguments when download() is called', () => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000; // increase timeout interval to 10 seconds
-    spyOn(exportAsService, 'save').and.callThrough();
-    component.gauge.gaugeValue = 10;
-    component.gauge.gaugeValue2 = 20;
-    component.download();
-    expect(exportAsService.save).toHaveBeenCalledWith(component.exportAsConfig, '10x20');
+    fixture.detectChanges();
   });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should call downloadImage when button is clicked', () => {
+    spyOn(component, 'downloadImage');
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    expect(component.downloadImage).toHaveBeenCalled();
+  });
+
+  it('should set downloadLink attributes correctly', () => {
+    component.downloadImage();
+    fixture.detectChanges();
+    const downloadLinkDebugElement = fixture.debugElement.query(By.css('#downloadLink'));
+    const downloadLink = downloadLinkDebugElement.nativeElement;
+    expect(downloadLink.href).toEqual(html2canvasResult.toDataURL('image/jpeg', 1.0));
+    expect(downloadLink.download).toEqual(`${component.gauge.gaugeValue}x${component.gauge.gaugeValue2}`);
+  });
+  it('should set canvas src attribute correctly', () => {
+    component.downloadImage();
+    fixture.detectChanges();
+    const canvasDebugElement = fixture.debugElement.query(By.css('#canvas'));
+    const canvas = canvasDebugElement.nativeElement;
+    expect(canvas.src).toEqual(html2canvasResult.toDataURL());
+  });
+
 });

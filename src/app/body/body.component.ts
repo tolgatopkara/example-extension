@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { ExportAsService, ExportAsConfig, ExportAsModule } from 'ngx-export-as';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import html2canvas from 'html2canvas';
 import { GaugeComponent } from "../gauge/gauge.component";
 
 @Component({
@@ -7,38 +7,38 @@ import { GaugeComponent } from "../gauge/gauge.component";
   selector: 'app-body',
   template: `
 
-    <div id="downloadedItem" class=" w-120 h-68 bg-zinc-900">
+    <div #screen  class=" w-120 h-68 bg-zinc-900">
   <app-gauge  #gauge></app-gauge>
 </div>
-<button (click)="download()" >download</button>
+<div class="hidden w-120 h-68" id="download">
+     <img #canvas />
+     <a #downloadLink></a>
+</div>
+<button (click)="downloadImage()" >download</button>
 
 
  `,
-  imports: [GaugeComponent, ExportAsModule]
+  imports: [GaugeComponent,]
 })
 export class BodyComponent {
 
-  @ViewChild('gauge')
-  gauge!: GaugeComponent;
+  @ViewChild('gauge') gauge!: GaugeComponent;
+  @ViewChild('screen') screen!: ElementRef;
+  @ViewChild('canvas') canvas!: ElementRef;
+  @ViewChild('downloadLink') downloadLink!: ElementRef;
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: 'downloadedItem', // the id of html/table element
-    options: {
-      scale: 1,
 
-      // html2canvas options
-    }
 
-  }
-
-  constructor(private exportAsService: ExportAsService) { }
-
-  download() {
-    this.exportAsService.save(this.exportAsConfig, `${this.gauge.gaugeValue} x ${this.gauge.gaugeValue2}`).subscribe(() => {
-      // save started
+  downloadImage() {
+    html2canvas(this.screen.nativeElement).then(canvas => {
+      this.canvas.nativeElement.src = canvas.toDataURL();
+      this.downloadLink.nativeElement.href = canvas.toDataURL('image/jpeg', 1.0);
+      this.downloadLink.nativeElement.download = (`${this.gauge.gaugeValue}x${this.gauge.gaugeValue2}`);
+      this.downloadLink.nativeElement.click();
     });
   }
+
+
 
 
 }
