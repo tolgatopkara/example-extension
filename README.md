@@ -1,5 +1,5 @@
 # ExampleExtention
-https://user-images.githubusercontent.com/65635988/209991646-5d88dd39-93a6-4227-83f6-934ed04daff7.mp4
+![gauge app video](https://user-images.githubusercontent.com/65635988/209992864-83ec0519-63df-4141-b632-c2ee1daa3422.gif)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
