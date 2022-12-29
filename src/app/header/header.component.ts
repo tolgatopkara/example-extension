@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { GaugeComponent } from '../gauge/gauge.component';
 import { GaugeService } from '../gauge/gauge.service';
 import { FormsModule } from '@angular/forms';
@@ -12,12 +12,17 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeaderComponent {
 
+  @Output() downlaod = new EventEmitter<void>();
+
   constructor(private gaugeService:GaugeService) {
 
   }
   public gaugeValue = 0;  // initialize the gauge value
   public gaugeValue2 = 0;  // initialize the gauge value
 
+  downloadImage() {
+    this.downlaod.emit();
+  }
 
   updateGaugeValue() {
     this.gaugeService.updateGaugeValue(this.gaugeValue);

@@ -6,7 +6,6 @@ import { BodyComponent } from "./body/body.component";
     standalone: true,
     selector: 'app-root',
     template: `
-    <app-header></app-header>
     <app-body ></app-body>
   `,
     imports: [HeaderComponent, BodyComponent]
